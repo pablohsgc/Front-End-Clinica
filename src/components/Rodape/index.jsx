@@ -1,3 +1,5 @@
+import './footer.css';
+
 export function Rodape(){
     return(
         <footer class="footer">
