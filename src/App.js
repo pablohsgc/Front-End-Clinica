@@ -41,8 +41,8 @@ function App() {
           <Route path="/agendamento" element={<Agendamento/>}/>
           <Route path="/galeria" element={<Galeria/>}/>
           <Route path="/novoEndereco" element={<NovoEndereco/>}/>
-          <Route path="/cadastrarFuncionario" element={<CadastrarFuncionario/>}/>
-          <Route path="/cadastrarPaciente" element={<CadastrarPaciente/>}/>
+          <Route path="/cadastrarFuncionario" element={<Private><CadastrarFuncionario/></Private>}/>
+          <Route path="/cadastrarPaciente" element={<Private><CadastrarPaciente/></Private>}/>
           <Route path="/listarAgendamentos" element={<Private><ListarAgendamentos/></Private>}/>
           <Route path="/listarConsultas" element={<Private><ListarConsultas/></Private>}/>
           <Route path="/listarEnderecos" element={<Private><ListarEnderecos/></Private>}/>
