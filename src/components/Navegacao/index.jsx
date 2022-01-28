@@ -1,8 +1,5 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/Auth";
-import { DropdownButton } from 'react-bootstrap';
-import { Dropdown } from 'react-bootstrap';
-import { NavDropdown } from 'react-bootstrap';
 
 
 export default function Navegacao(){
@@ -17,12 +14,6 @@ export default function Navegacao(){
     
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-        
-        <NavDropdown title="Cadastro" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="/cadastrarPaciente">Cadastrar Paciente</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="/cadastrarFuncionario">Cadastrar Funcionário</NavDropdown.Item>
-        </NavDropdown>
 
           <li className="nav-item">
             <a className="nav-link" href="/agendamento">Agendamento</a>
