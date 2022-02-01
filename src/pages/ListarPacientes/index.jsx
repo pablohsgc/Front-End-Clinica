@@ -10,13 +10,13 @@ export function ListarPacientes() {
 
     useEffect(() => {
 
-        async function buscarFuncionarios() {
+        async function buscarPacientes() {
             const response = await RequisitaListarPacientes();
 
             setItem(response);
         }
 
-        buscarFuncionarios();
+        buscarPacientes();
 
     }, [])
 
