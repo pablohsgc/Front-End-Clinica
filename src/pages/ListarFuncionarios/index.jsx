@@ -11,30 +11,21 @@ export function ListarFuncionarios() {
     useEffect(() => {
 
         async function buscarFuncionarios() {
-            const response = await RequisitaListarFuncionarios();
-
-            console.log("RESPONSE ", response);            
+            const response = await RequisitaListarFuncionarios();           
             
             setItem(response);
         }
+        
         buscarFuncionarios();
 
     }, [])
 
-    const handleAdicaoItem = async () => {
-
-
-    };
-
     return (
         <div className='container'>
-            <h1>Lista de Funcionarios:</h1>
-
-            <h5> <ItemListado handleAdicaoItem={handleAdicaoItem}
-                itemListado={itemListado} />
-            </h5>   
-
-
+            <h1 className='text-center'>Funcionarios</h1>
+            <h5> 
+                <ItemListado itemListado={itemListado} />
+            </h5>
         </div >
     );
 
