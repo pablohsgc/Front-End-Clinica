@@ -79,6 +79,26 @@ export async function RequisitaListarEnderecos(email, senha) {
         })
 }
 
+export async function RequisitaAgendaMedico(codigomedico, data) {
+    const medico = {
+        codigomedico: codigomedico,
+        data: data
+    }
+
+    let user = JSON.parse(localStorage.getItem('usuario-tp2'))
+
+    return await fetch(BASE_URL + "/agendamentos/consultasMarcadas", {
+        method: 'POST',
+        body: JSON.stringify(medico),
+        headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
+    })
+        .then(response => response.json())
+        .then((json) => {
+            return json
+        }).catch((erro) => {
+            throw erro;
+        })
+}
 //Exemplo de requisição que utiliza o token de acesso
 /*
 export async function RequisitaLogin(email,senha) {

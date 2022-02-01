@@ -4,7 +4,7 @@ import Item from './endereco'
 const ItemListado = ({ itemListado }) => {
     return (
         <div className='item-container'>
-            <table border="1" WIDTH='1500' >
+            <table border="1" width='1500' >
                 <tr align='center'>
                     <td>CEP</td>
                     <td >Logradouro</td>

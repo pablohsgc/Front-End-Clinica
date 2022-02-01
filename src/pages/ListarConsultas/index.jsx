@@ -1,5 +1,32 @@
-export function ListarConsultas(){
+import '../ListarFuncionarios/Listar.css'
+import ItemListado from '../ListarConsultas/consultas'
+import { RequisitaAgendaMedico } from "../../api/api";
+import { useState, useEffect } from 'react'
+
+
+export function ListarConsultas() {
+
+    const [itemListado, setItem] = useState([]);
+
+    useEffect(() => {
+
+        async function buscarConsultas(codigomedico, data) {
+            const response = await RequisitaAgendaMedico(44, "2021-02-21");
+            console.log(response);
+            setItem(response);
+        }
+
+        buscarConsultas();
+
+    }, [])
+
     return (
-        <h1>Listar Consultas</h1>
+        <div className='container'>
+            <h1 className='text-center'>Consultas</h1>
+            <h5>
+                <ItemListado itemListado={itemListado} />
+            </h5>
+        </div >
     );
+
 }

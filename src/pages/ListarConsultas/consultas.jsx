@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from './Item'
+import Item from './consulta'
 
 const ItemListado = ({ itemListado }) => {
     return (
@@ -7,10 +7,12 @@ const ItemListado = ({ itemListado }) => {
             <table border="1" width='1500' >
                 <tr align='center'>
                     <td>Cód.</td>
-                    <td>Nome</td>
-                    <td>Email</td>
-                    <td>Telefone</td>
-                    <td>Salário</td>
+                    <td>Data Consulta</td>
+                    <td>Horário</td>
+                    <td>Nome Paciente</td>
+                    <td>Email Paciente</td>
+                    <td>Telefone Paciente</td>
+                    <td>Cód. Médico</td>
                 </tr>
                 {itemListado.map((item) => (
                     <Item item={item} />

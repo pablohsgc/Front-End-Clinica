@@ -1,9 +1,7 @@
 import React from 'react';
 import '../ListarFuncionarios/Item.css'
 
-const Item = ({ item }) => {
-    let date = Date.parse(item.dataconsulta);
-    let data = new Date(date);
+const Item = ({ item }) => {    
 
     return (
         <tr className='text-center'>
