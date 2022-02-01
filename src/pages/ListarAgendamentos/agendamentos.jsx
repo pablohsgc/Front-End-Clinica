@@ -6,13 +6,13 @@ const ItemListado = ({ itemListado }) => {
         <div className='item-container'>
             <table border="1" WIDTH='1500' >
                 <tr align='center'>
-                    <td>Código</td>
+                    <td>Cód.</td>
                     <td >Data</td>
                     <td>Horário</td>
                     <td>Nome</td>
                     <td>Email</td>
                     <td>Telefone</td>
-                    <td>Código Médico</td>
+                    <td>Cód. Médico</td>
                 </tr>
                 {itemListado.map((item) => (
                     <Item item={item} />

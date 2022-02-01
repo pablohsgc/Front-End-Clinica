@@ -6,7 +6,7 @@ const ItemListado = ({ itemListado }) => {
             <div className='item-container'>
                 <table border="1" WIDTH='1500' >
                     <tr align='center'>
-                        <td>Código</td>
+                        <td>Cód.</td>
                         <td>Nome</td>
                         <td>Email</td>
                         <td>Telefone</td>                
