@@ -79,13 +79,10 @@ export async function RequisitaListarEnderecos(email, senha) {
         })
 }
 
-export async function RequisitaAgendaMedico(codigoMedico, data) {
+export async function RequisitaAgendaMedico( data) {
     const medico = {
-        codigoMedico: codigoMedico,
         data: data
-    }
-    console.log("Cod e data ", codigoMedico, data);
-    console.log("Medico ", medico);
+    }    
 
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 

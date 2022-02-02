@@ -10,8 +10,8 @@ export function ListarConsultas() {
 
     useEffect(() => {
 
-        async function buscarConsultas(codigoMedico, data) {
-            const response = await RequisitaAgendaMedico(44, "2021-02-21");
+        async function buscarConsultas(data) {
+            const response = await RequisitaAgendaMedico("2021-03-21");
 
             setItem(response);
         }
