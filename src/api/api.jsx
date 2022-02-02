@@ -79,11 +79,13 @@ export async function RequisitaListarEnderecos(email, senha) {
         })
 }
 
-export async function RequisitaAgendaMedico(codigomedico, data) {
+export async function RequisitaAgendaMedico(codigoMedico, data) {
     const medico = {
-        codigomedico: codigomedico,
+        codigoMedico: codigoMedico,
         data: data
     }
+    console.log("Cod e data ", codigoMedico, data);
+    console.log("Medico ", medico);
 
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 
@@ -103,9 +105,9 @@ export async function RequisitaAgendaMedico(codigomedico, data) {
 //Requisições POST
 export async function RequisitaAgendamentos(nome, cpf, email, telefone, especialidade, nomeMedico, logradouro, numero, complemento, bairro, cidade, estado, cep) {
     const usuario = {
-        nome:nome,
-        cpf:cpf,
-        email:email,
+        nome: nome,
+        cpf: cpf,
+        email: email,
         telefone: telefone,
         especialidade: especialidade,
         nomeMedico: nomeMedico,
@@ -120,17 +122,17 @@ export async function RequisitaAgendamentos(nome, cpf, email, telefone, especial
 
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 
-    return await fetch(BASE_URL+"/agendamentos",{
-        method:'POST',
-        body:JSON.stringify(usuario),
-        headers: {"Content-type": "application/json; charset=UTF-8","bearer":user.token}
+    return await fetch(BASE_URL + "/agendamentos", {
+        method: 'POST',
+        body: JSON.stringify(usuario),
+        headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
     })
-    .then(response => response.json())
-    .then((json) =>{
-        return json
-    }).catch((erro) => {
-        throw erro;
-    })
+        .then(response => response.json())
+        .then((json) => {
+            return json
+        }).catch((erro) => {
+            throw erro;
+        })
 }
 
 export async function RequisitaEnderecos(logradouro, numero, complemento, bairro, cidade, estado, cep) {

@@ -10,9 +10,9 @@ export function ListarConsultas() {
 
     useEffect(() => {
 
-        async function buscarConsultas(codigomedico, data) {
+        async function buscarConsultas(codigoMedico, data) {
             const response = await RequisitaAgendaMedico(44, "2021-02-21");
-            console.log(response);
+
             setItem(response);
         }
 
