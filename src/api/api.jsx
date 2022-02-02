@@ -83,7 +83,7 @@ export async function RequisitaAgendaMedico( data) {
     const medico = {
         data: data
     }    
-
+    console.log("DATA ", data);
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 
     return await fetch(BASE_URL + "/agendamentos/consultasMarcadas", {
