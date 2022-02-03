@@ -100,8 +100,9 @@ export async function RequisitaAgendaMedico( data) {
 }
 
 //Requisições POST
-export async function RequisitaAgendamentos(nome, cpf, email, telefone, especialidade, nomeMedico, logradouro, numero, complemento, bairro, cidade, estado, cep) {
+export async function RequisitaAgendamentos(data, nome, cpf, email, telefone, especialidade, nomeMedico, logradouro, numero, complemento, bairro, cidade, estado, cep) {
     const usuario = {
+        data: data,
         nome: nome,
         cpf: cpf,
         email: email,
@@ -147,6 +148,71 @@ export async function RequisitaEnderecos(logradouro, numero, complemento, bairro
         method: 'POST',
         body: JSON.stringify(usuario),
         headers: { "Content-type": "application/json; charset=UTF-8" }
+    })
+        .then(response => response.json())
+        .then((json) => {
+            return json
+        }).catch((erro) => {
+            throw erro;
+        })
+}
+
+export async function RequisitaCadastrarFuncionario(nome, email, telefone, logradouro, numero, complemento, bairro, cidade, estado, cep, dataInicialTrabalho, salario, senhaHash, especialidade, crm) {
+    const usuario = {
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        logradouro: logradouro,
+        numero: numero,
+        complemento: complemento,
+        bairro: bairro,
+        cidade: cidade,
+        estado: estado,
+        cep: cep,
+        dataInicialTrabalho: dataInicialTrabalho,
+        salario: salario,
+        senhaHash: senhaHash,
+        especialidade: especialidade,
+        crm: crm
+
+    }
+
+    let user = JSON.parse(localStorage.getItem('usuario-tp2'))
+
+    return await fetch(BASE_URL + "/cadastrarFuncionario", {
+        method: 'POST',
+        body: JSON.stringify(usuario),
+        headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
+    })
+        .then(response => response.json())
+        .then((json) => {
+            return json
+        }).catch((erro) => {
+            throw erro;
+        })
+}
+
+export async function RequisitaCadastrarPaciente(nome, email, telefone, logradouro, numero, complemento, bairro, cidade, estado, cep) {
+    const usuario = {
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        logradouro: logradouro,
+        numero: numero,
+        complemento: complemento,
+        bairro: bairro,
+        cidade: cidade,
+        estado: estado,
+        cep: cep
+
+    }
+
+    let user = JSON.parse(localStorage.getItem('usuario-tp2'))
+
+    return await fetch(BASE_URL + "/cadastrarPaciente", {
+        method: 'POST',
+        body: JSON.stringify(usuario),
+        headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
     })
         .then(response => response.json())
         .then((json) => {

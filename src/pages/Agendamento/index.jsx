@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 export function Agendamento(){
 
  // const {agendamentos} = useContext(AuthContext);
-  
+  const [data, setData] = useState("");
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
@@ -22,7 +22,7 @@ export function Agendamento(){
   const [cep, setCep] = useState("");
 
   const handleSubmit = async () => {
-    let response = await RequisitaAgendamentos(nome, cpf, email, telefone, especialidade, nomeMedico, logradouro, numero, complemento, bairro, cidade, estado, cep)
+    let response = await RequisitaAgendamentos(data, nome, cpf, email, telefone, especialidade, nomeMedico, logradouro, numero, complemento, bairro, cidade, estado, cep)
     console.log("Response handlesubmit: ",response)
     alert(response)
   }
@@ -33,7 +33,16 @@ export function Agendamento(){
           Agendamento de Consulta
         </div>
 
-        <Form method="post">
+        <Form class="form-agendamento" action="/agendamentos" method="post">
+            <div class="row">
+              <div class="col-lg-4">
+                <Form.Group>
+                  <Form.Label>Data para a Consulta:</Form.Label>
+                  <input id="date" type="date" value="2022-02-01" value={data} onChange={e => setData(e.target.value)} required/>
+                </Form.Group>
+              </div>
+            </div>
+          <Form.Label></Form.Label>
           <div class="row">
               <div class="col-lg-8">
                 <Form.Group>

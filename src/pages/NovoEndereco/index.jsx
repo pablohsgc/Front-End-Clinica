@@ -26,7 +26,7 @@ export function NovoEndereco(){
         Os endereços adicionados aqui, serão armazenados em nossa base de endereços e usados para melhor atendê-los.
         </p>
 
-        <Form class="form-endereco" method="post" >
+        <Form class="form-endereco" action="/novoEndereco" method="post" >
         <div class="row">
               <div class="col-lg-6">
                 <Form.Group>
