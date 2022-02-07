@@ -28,29 +28,29 @@ export function Agendamento(){
   }
 
     return(
-        <div class="container">
-        <div class="alert alert-info">
+        <div className="container">
+        <div className="alert alert-info">
           Agendamento de Consulta
         </div>
 
-        <Form class="form-agendamento" action="/agendamentos" method="post">
-            <div class="row">
-              <div class="col-lg-4">
+        <Form className="form-agendamento" action="/agendamentos" method="post">
+            <div className="row">
+              <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>Data para a Consulta:</Form.Label>
-                  <input id="date" type="date" value="2022-02-01" value={data} onChange={e => setData(e.target.value)} required/>
+                  <input id="date" type="date" value={data} onChange={e => setData(e.target.value)} required/>
                 </Form.Group>
               </div>
             </div>
           <Form.Label></Form.Label>
-          <div class="row">
-              <div class="col-lg-8">
+          <div className="row">
+              <div className="col-lg-8">
                 <Form.Group>
                   <Form.Label>Nome Completo</Form.Label>
                   <Form.Control type="nome" placeholder="" value={nome} onChange={e => setNome(e.target.value)} required/>
                 </Form.Group>
               </div>
-              <div class="col-lg-4">
+              <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>CPF</Form.Label>
                   <Form.Control type="cpf" placeholder="" value={cpf} onChange={e => setCpf(e.target.value)} required/>
@@ -58,14 +58,14 @@ export function Agendamento(){
               </div>
           </div>
           <Form.Label></Form.Label>
-          <div class="row">
-              <div class="col-lg-8">
+          <div className="row">
+              <div className="col-lg-8">
                 <Form.Group>
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email" placeholder="" value={email} onChange={e => setEmail(e.target.value)} required/>
                 </Form.Group>
               </div>
-              <div class="col-lg-4">
+              <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>Telefone</Form.Label>
                   <Form.Control type="telefone" placeholder="" value={telefone} onChange={e => setTelefone(e.target.value)} required/>
@@ -73,14 +73,14 @@ export function Agendamento(){
               </div>
           </div>
           <Form.Label></Form.Label>
-          <div class="row">
-              <div class="col-lg-6">
+          <div className="row">
+              <div className="col-lg-6">
                 <Form.Group>
                   <Form.Label>Especialidade Médica</Form.Label>
                   <Form.Control type="especialidade" placeholder="" value={especialidade} onChange={e => setEspecialidade(e.target.value)} required/>
                 </Form.Group>
               </div>
-              <div class="col-lg-6">
+              <div className="col-lg-6">
                 <Form.Group>
                   <Form.Label>Nome do Médico</Form.Label>
                   <Form.Control type="nomeMedico" placeholder="" value={nomeMedico} onChange={e => setNomeMedico(e.target.value)} required/>
@@ -88,20 +88,20 @@ export function Agendamento(){
               </div>
           </div>
           <Form.Label></Form.Label>
-          <div class="row">
-              <div class="col-lg-6">
+          <div className="row">
+              <div className="col-lg-6">
                 <Form.Group>
                   <Form.Label>Logradouro</Form.Label>
                   <Form.Control type="logradouro" placeholder="Rua" value={logradouro} onChange={e => setLogradouro(e.target.value)} required/>
                 </Form.Group>
               </div>
-              <div class="col-lg-2">
+              <div className="col-lg-2">
                 <Form.Group>
                   <Form.Label>Número</Form.Label>
                   <Form.Control type="numero" placeholder="" value={numero} onChange={e => setNumero(e.target.value)} required/>
                 </Form.Group>
               </div>
-              <div class="col-lg-4">
+              <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>Complemento</Form.Label>
                   <Form.Control type="complemento" placeholder="Casa/Apto" value={complemento} onChange={e => setComplemento(e.target.value)} required/>
@@ -109,26 +109,26 @@ export function Agendamento(){
               </div>
           </div>
           <Form.Label></Form.Label>
-          <div class="row">
-              <div class="col-lg-4">
+          <div className="row">
+              <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>Bairro</Form.Label>
                   <Form.Control type="bairro" placeholder="" value={bairro} onChange={e => setBairro(e.target.value)} required/>
                 </Form.Group>
               </div>
-              <div class="col-lg-4">
+              <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>Cidade</Form.Label>
                   <Form.Control type="cidade" placeholder="" value={cidade} onChange={e => setCidade(e.target.value)} required/>
                 </Form.Group>
               </div>
-              <div class="col-lg-2">
+              <div className="col-lg-2">
                 <Form.Group>
                   <Form.Label>Estado</Form.Label>
                   <Form.Control type="estado" placeholder="" value={estado} onChange={e => setEstado(e.target.value)} required/>
                 </Form.Group>
               </div>
-              <div class="col-lg-2">
+              <div className="col-lg-2">
                 <Form.Group>
                   <Form.Label>CEP</Form.Label>
                   <Form.Control type="cep" placeholder="" value={cep} onChange={e => setCep(e.target.value)} required/>
@@ -137,8 +137,8 @@ export function Agendamento(){
           </div>
           <Form.Label></Form.Label>
         </Form>
-        <div class="form-group col-md-12 text-center">
-            <button id="CadastraConsulta" name="Agendar" class="btn btn-primary" onClick={handleSubmit}>Agendar</button>
+        <div className="form-group col-md-12 text-center">
+            <button id="CadastraConsulta" name="Agendar" className="btn btn-primary" onClick={handleSubmit}>Agendar</button>
            
         </div>  
     </div>    

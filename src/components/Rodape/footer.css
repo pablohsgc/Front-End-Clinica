@@ -1,9 +1,6 @@
-.container{
-    padding: 2%;
-}
-
 .footer{
-    padding: 1%;
+    padding-top: 15px;
+    padding-bottom: 1px;
     color: #31708f;
     background-color: #bce8f1;
     border-color: transparent;

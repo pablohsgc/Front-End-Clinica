@@ -7,26 +7,27 @@ import { useState, useEffect } from 'react'
 export function ListarConsultas() {
 
     const [itemListado, setItem] = useState([]);
-
+    const [data,setData] = useState("2022-02-02");
+    
     useEffect(() => {
-
         async function buscarConsultas() {
-            var date = document.getElementById("date").value;
-            console.log("DATE: ", date);
+            console.log("DATE: ", data);
 
-            const response = await RequisitaAgendaMedico(date);
+            const response = await RequisitaAgendaMedico(data);
             setItem(response);
         }        
+        
         buscarConsultas();
-    }, [])
+
+    }, [data])
 
     return (
         <div className='container'>
             <h1 className='text-center'>Consultas</h1>
             <form className='item-container'>
                 <label for="date">Escolha uma data:</label>
-                <input required id="date" name='calendario' type="date" defaultValue={"2022-02-02"}></input>
-                <input id='selecinarData' name='selecinarData' type="submit" class="btn btn-primary"></input>
+                <input id="date" name='calendario' type="date" value={data} onChange={e => setData(e.target.value)} required/>
+                <input id='selecinarData' name='selecinarData' type="submit" class="btn btn-primary"/>
             </form>
 
             <h5>
