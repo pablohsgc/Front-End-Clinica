@@ -1,30 +1,93 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
-import { RequisitaAgendamentos } from "../../api/api";
+import { RequisitaEspecialidades,
+         RequisitaEspecialistas, 
+         RequisitaHorariosDisponiveis,
+         RequisitaAgendamento } from "../../api/api";
 import { useState, useEffect } from 'react';
+import './style.css';
 
 export function Agendamento(){
 
- // const {agendamentos} = useContext(AuthContext);
   const [data, setData] = useState("");
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
-  const [especialidade, setEspecialidade] = useState("");
-  const [nomeMedico, setNomeMedico] = useState("");
-  const [logradouro, setLogradouro] = useState("");
-  const [numero, setNumero] = useState("");
-  const [complemento, setComplemento] = useState("");
-  const [bairro, setBairro] = useState("");
-  const [cidade, setCidade] = useState("");
-  const [estado, setEstado] = useState("");
-  const [cep, setCep] = useState("");
+  const [especialidade, setEspecialidade] = useState("0");
+  const [especialidades, setEspecialidades] = useState("");
+  const [horarios, setHorarios] = useState([<option key="horario_default" value="0">Preencha as demais opções!</option>]);
+  const [horario, setHorario] = useState(0);
+  const [medicos, setMedicos] = useState([<option key="medico_default" value="0">Selecione uma especialidade médica!</option>]);
+  const [codigoMedico, setcodigoMedico] = useState("0");
+
+  useEffect(() => {
+    async function buscarEspecialidades() {
+        const response = await RequisitaEspecialidades();
+        
+        const lista = [];
+        
+        lista.push(<option key="especialidade_default" value="0">Selecione uma especialidade médica!</option>);
+
+        for(let i = 0 ; i < response.length; i++)
+            lista.push(<option key={"especialidade_"+i} value={response[i].especialidade}>{response[i].especialidade}</option>)
+
+        setEspecialidades(lista);
+    }        
+    
+    buscarEspecialidades();
+
+  }, []);
+
+  const adicionaHorarios = async (codigoMedicoEscolhido,dataEscolhida) => {
+      alert("acionou adiciona horarios!")
+      
+      const response = await RequisitaHorariosDisponiveis(codigoMedicoEscolhido,dataEscolhida);
+      
+      const lista = [];
+      
+      lista.push(<option key="horario_default" value="0">Selecione um horario!</option>);
+
+      for(let i = 0 ; i < response.length; i++)
+          lista.push(<option key={"horario_"+i} value={response[i].hora}>{response[i].hora}</option>)
+
+      setHorarios(lista);
+  };
+
+  const adicionaMedicos = async (especialidade) => {
+    const response = await RequisitaEspecialistas(especialidade);
+      
+    const lista = [];
+    
+    lista.push(<option key="medico_default" value="0">Selecione um médico!</option>);
+
+    for(let i = 0 ; i < response.length; i++)
+      lista.push(<option key={"medico_"+i} value={response[i].codigo}>{response[i].nome}</option>)
+
+    setMedicos(lista);
+  };
+  
+  const escolheMedico = async (codigoMedicoEscolhido) => {
+    setcodigoMedico(codigoMedicoEscolhido);
+    if(data !== "") adicionaHorarios(codigoMedicoEscolhido,data);
+  };
+
+  const escolheEspecialidade = async (especialidade) => {
+    setEspecialidade(especialidade);
+    adicionaMedicos(especialidade);
+  };
+
+  const escolheData = async (dataEscolhida) => {
+    setData(dataEscolhida);
+    
+    if(codigoMedico !== 0) adicionaHorarios(codigoMedico,dataEscolhida);
+  };
 
   const handleSubmit = async () => {
-    let response = await RequisitaAgendamentos(data, nome, cpf, email, telefone, especialidade, nomeMedico, logradouro, numero, complemento, bairro, cidade, estado, cep)
-    console.log("Response handlesubmit: ",response)
-    alert(response)
+    //let response = await RequisitaAgendamentos(data, nome, cpf, email, telefone, especialidade, codigoMedico, logradouro, numero, complemento, bairro, cidade, estado, cep)
+    let response = await RequisitaAgendamento(data,horario,nome,email,telefone,especialidade,codigoMedico);
+    
+    alert(response.mensagem);
   }
 
     return(
@@ -33,16 +96,7 @@ export function Agendamento(){
           Agendamento de Consulta
         </div>
 
-        <Form className="form-agendamento" action="/agendamentos" method="post">
-            <div className="row">
-              <div className="col-lg-4">
-                <Form.Group>
-                  <Form.Label>Data para a Consulta:</Form.Label>
-                  <input id="date" type="date" value={data} onChange={e => setData(e.target.value)} required/>
-                </Form.Group>
-              </div>
-            </div>
-          <Form.Label></Form.Label>
+        <Form className="form-agendamento" action="/" method="post">
           <div className="row">
               <div className="col-lg-8">
                 <Form.Group>
@@ -77,70 +131,49 @@ export function Agendamento(){
               <div className="col-lg-6">
                 <Form.Group>
                   <Form.Label>Especialidade Médica</Form.Label>
-                  <Form.Control type="especialidade" placeholder="" value={especialidade} onChange={e => setEspecialidade(e.target.value)} required/>
+                  <select className="form-control" name="especialidade" onChange={(e) => escolheEspecialidade(e.target.value)} required>
+                    {
+                      especialidades
+                    }
+                  </select>
                 </Form.Group>
               </div>
               <div className="col-lg-6">
                 <Form.Group>
                   <Form.Label>Nome do Médico</Form.Label>
-                  <Form.Control type="nomeMedico" placeholder="" value={nomeMedico} onChange={e => setNomeMedico(e.target.value)} required/>
+                  <select className="form-control" name="codigoMedico" onChange={(e) => escolheMedico(e.target.value)} required>
+                    {
+                      medicos
+                    }
+                  </select>
                 </Form.Group>
               </div>
           </div>
-          <Form.Label></Form.Label>
-          <div className="row">
-              <div className="col-lg-6">
+          <Form.Label></Form.Label>  
+            <div className="row">
+              <div className="col-lg-4">
                 <Form.Group>
-                  <Form.Label>Logradouro</Form.Label>
-                  <Form.Control type="logradouro" placeholder="Rua" value={logradouro} onChange={e => setLogradouro(e.target.value)} required/>
-                </Form.Group>
-              </div>
-              <div className="col-lg-2">
-                <Form.Group>
-                  <Form.Label>Número</Form.Label>
-                  <Form.Control type="numero" placeholder="" value={numero} onChange={e => setNumero(e.target.value)} required/>
+                  <Form.Label>Data para a Consulta: </Form.Label>
+                  <input id="date" type="date" className="form-control" value={data} onChange={e => escolheData(e.target.value)} required/>
                 </Form.Group>
               </div>
               <div className="col-lg-4">
                 <Form.Group>
-                  <Form.Label>Complemento</Form.Label>
-                  <Form.Control type="complemento" placeholder="Casa/Apto" value={complemento} onChange={e => setComplemento(e.target.value)} required/>
+                  <Form.Label>Horario: </Form.Label>
+                  <select className="form-control" name="horario" onChange={(e) => setHorario(e.target.value)} required>
+                    {
+                      horarios
+                    }
+                  </select>
                 </Form.Group>
               </div>
-          </div>
-          <Form.Label></Form.Label>
-          <div className="row">
-              <div className="col-lg-4">
-                <Form.Group>
-                  <Form.Label>Bairro</Form.Label>
-                  <Form.Control type="bairro" placeholder="" value={bairro} onChange={e => setBairro(e.target.value)} required/>
-                </Form.Group>
+              <div className='row'>
+                <div className="col align-self-end botao-agenda">  
+                  <button id="CadastraConsulta" name="Agendar" className="btn btn-primary" onClick={handleSubmit}>Agendar</button> 
+                </div>  
               </div>
-              <div className="col-lg-4">
-                <Form.Group>
-                  <Form.Label>Cidade</Form.Label>
-                  <Form.Control type="cidade" placeholder="" value={cidade} onChange={e => setCidade(e.target.value)} required/>
-                </Form.Group>
-              </div>
-              <div className="col-lg-2">
-                <Form.Group>
-                  <Form.Label>Estado</Form.Label>
-                  <Form.Control type="estado" placeholder="" value={estado} onChange={e => setEstado(e.target.value)} required/>
-                </Form.Group>
-              </div>
-              <div className="col-lg-2">
-                <Form.Group>
-                  <Form.Label>CEP</Form.Label>
-                  <Form.Control type="cep" placeholder="" value={cep} onChange={e => setCep(e.target.value)} required/>
-                </Form.Group>
-              </div>
-          </div>
-          <Form.Label></Form.Label>
+            </div>
         </Form>
-        <div className="form-group col-md-12 text-center">
-            <button id="CadastraConsulta" name="Agendar" className="btn btn-primary" onClick={handleSubmit}>Agendar</button>
-           
-        </div>  
     </div>    
     );
 }
