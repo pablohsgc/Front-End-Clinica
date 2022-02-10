@@ -49,7 +49,7 @@ export function CadastrarPaciente() {
           <div class="col-lg-4">
             <Form.Group>
               <Form.Label>Telefone</Form.Label>
-              <Form.Control type="text" class="form-control" name="telefone" placeholder="" value={telefone} onChange={e => setTelefone(e.target.value)} required/>
+              <Form.Control type="text" class="form-control" name="telefone" placeholder="Apenas números" value={telefone} onChange={e => setTelefone(e.target.value)} required/>
             </Form.Group>
           </div>
         </div>
@@ -57,20 +57,20 @@ export function CadastrarPaciente() {
           <div class="row">
               <div class="col-lg-6">
                 <Form.Group>
-                  <Form.Label>Peso</Form.Label>
-                  <Form.Control type="peso" placeholder="" value={peso} onChange={e => setPeso(e.target.value)} required/>
+                  <Form.Label>Peso (Kg)</Form.Label>
+                  <Form.Control type="peso" placeholder="00.0" value={peso} onChange={e => setPeso(e.target.value)} required/>
                 </Form.Group>
               </div>
               <div class="col-lg-3">
                 <Form.Group>
-                  <Form.Label>Altura</Form.Label>
-                  <Form.Control type="altura" placeholder="" value={altura} onChange={e => setAltura(e.target.value)} required/>
+                  <Form.Label>Altura (metros)</Form.Label>
+                  <Form.Control type="altura" placeholder="0.00" step='0.01' value={altura} onChange={e => setAltura(e.target.value)} required/>
                 </Form.Group>
               </div>
               <div class="col-lg-3">
                 <Form.Group>
                   <Form.Label>Tipo Sanguíneo</Form.Label>
-                  <Form.Control type="tipoSanguineo" placeholder="" value={tipoSanguineo} onChange={e => setTipoSanguineo(e.target.value)} required/>
+                  <Form.Control type="tipoSanguineo" placeholder="Ex.: A+" value={tipoSanguineo} onChange={e => setTipoSanguineo(e.target.value)} required/>
                 </Form.Group>
               </div>
           </div>
@@ -79,7 +79,7 @@ export function CadastrarPaciente() {
         <div class="col-lg-6">
                 <Form.Group>
                   <Form.Label>Logradouro</Form.Label>
-                  <Form.Control type="logradouro" placeholder="Rua" value={logradouro} onChange={e => setLogradouro(e.target.value)} required/>
+                  <Form.Control type="logradouro" placeholder="" value={logradouro} onChange={e => setLogradouro(e.target.value)} required/>
                 </Form.Group>
               </div>
               <div class="col-lg-6">
@@ -100,13 +100,13 @@ export function CadastrarPaciente() {
               <div class="col-lg-3">
                 <Form.Group>
                   <Form.Label>Estado</Form.Label>
-                  <Form.Control type="estado" placeholder="" value={estado} onChange={e => setEstado(e.target.value)} required/>
+              <Form.Control type="estado" placeholder="Ex.: Minas Gerais" value={estado} onChange={e => setEstado(e.target.value)} required/>
                 </Form.Group>
               </div>
               <div class="col-lg-3">
                 <Form.Group>
                   <Form.Label>CEP</Form.Label>
-                  <Form.Control type="cep" placeholder="" value={cep} onChange={e => setCep(e.target.value)} required/>
+                  <Form.Control type="cep" placeholder="Apenas números" value={cep} onChange={e => setCep(e.target.value)} required/>
                 </Form.Group>
               </div>
           </div>

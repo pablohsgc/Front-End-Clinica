@@ -107,7 +107,7 @@ export function Agendamento(){
               <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>CPF</Form.Label>
-                  <Form.Control type="cpf" placeholder="" value={cpf} onChange={e => setCpf(e.target.value)} required/>
+                  <Form.Control type="cpf" placeholder="Apenas números" value={cpf} onChange={e => setCpf(e.target.value)} required/>
                 </Form.Group>
               </div>
           </div>
@@ -122,7 +122,7 @@ export function Agendamento(){
               <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>Telefone</Form.Label>
-                  <Form.Control type="telefone" placeholder="" value={telefone} onChange={e => setTelefone(e.target.value)} required/>
+                  <Form.Control type="telefone" placeholder="Apenas números" value={telefone} onChange={e => setTelefone(e.target.value)} required/>
                 </Form.Group>
               </div>
           </div>
