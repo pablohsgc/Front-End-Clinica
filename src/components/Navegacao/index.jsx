@@ -26,8 +26,8 @@ export default function Navegacao(){
                 Cadastro
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="/cadastrarFuncionario">Cadastrar Funcionario</a>
-                <a className="dropdown-item" href="/cadastrarPaciente">Cadastrar Paciente</a>
+                <a className="dropdown-item" href="/funcionarios">Cadastrar Funcionario</a>
+                <a className="dropdown-item" href="/pacientes">Cadastrar Paciente</a>
               </div>
             </li>
           }
@@ -53,7 +53,7 @@ export default function Navegacao(){
           }
 
           <li className="nav-item">
-            <a className="nav-link" href="/novoEndereco">Novo Endereço</a>
+            <a className="nav-link" href="/enderecos">Novo Endereço</a>
           </li>
 
           <li className="nav-item">

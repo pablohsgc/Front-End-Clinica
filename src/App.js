@@ -40,9 +40,9 @@ function App() {
           <Route path="/" element={<Home/>} exact />
           <Route path="/agendamento" element={<Agendamento/>}/>
           <Route path="/galeria" element={<Galeria/>}/>
-          <Route path="/novoEndereco" element={<NovoEndereco/>}/>
-          <Route path="/cadastrarFuncionario" element={<Private><CadastrarFuncionario/></Private>}/>
-          <Route path="/cadastrarPaciente" element={<Private><CadastrarPaciente/></Private>}/>
+          <Route path="/enderecos" element={<NovoEndereco/>}/>
+          <Route path="/funcionarios" element={<Private><CadastrarFuncionario/></Private>}/>
+          <Route path="/pacientes" element={<Private><CadastrarPaciente/></Private>}/>
           <Route path="/listarAgendamentos" element={<Private><ListarAgendamentos/></Private>}/>
           <Route path="/listarConsultas" element={<Private><ListarConsultas/></Private>}/>
           <Route path="/listarEnderecos" element={<Private><ListarEnderecos/></Private>}/>
