@@ -8,19 +8,20 @@ export function CadastrarFuncionario() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
+  const [cep, setCep] = useState("");
   const [logradouro, setLogradouro] = useState("");
   const [bairro, setBairro] = useState("");
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
-  const [cep, setCep] = useState("");
   const [dataContrato, setDataContrato] = useState("");
   const [salario, setSalario] = useState("");
   const [senhaHash, setSenhaHash] = useState("");
   const [especialidade, setEspecialidade] = useState("");
-  const [crm, setCrm] = useState("");
+  const [CRM, setCrm] = useState("");
+  
 
   const handleSubmit = async () => {
-    let response = await RequisitaCadastrarFuncionario(nome, email, telefone, logradouro, bairro, cidade, estado, cep, dataContrato, salario, senhaHash, especialidade, crm)
+    let response = await RequisitaCadastrarFuncionario(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash, especialidade, CRM)
     console.log("Response handlesubmit: ",response)
     alert(response)
   }
@@ -96,7 +97,7 @@ export function CadastrarFuncionario() {
           <div class="col-lg-4">
             <Form.Group>
               <Form.Label>Data de Início do Contrato de Trabalho</Form.Label>
-              <Form.Control type="text" class="form-control" name="dataContrato" placeholder="" value={dataContrato} onChange={e => setDataContrato(e.target.value)} required/>
+                <input type="text" class="form-control" name="dataContrato" placeholder="" value={dataContrato} onChange={e => setDataContrato(e.target.value)} required/>
             </Form.Group>
           </div>
           <div class="col-lg-4">
@@ -131,7 +132,7 @@ export function CadastrarFuncionario() {
           <div class="col-lg-4">
             <Form.Group class="alert alert-warning" >
               <Form.Label>CRM</Form.Label>
-              <Form.Control type="text" class="form-control" name="crm" placeholder="" value={crm} onChange={e => setCrm(e.target.value)} required/>
+              <Form.Control type="text" class="form-control" name="CRM" placeholder="" value={CRM} onChange={e => setCrm(e.target.value)} required/>
             </Form.Group>
           </div>
         </div>

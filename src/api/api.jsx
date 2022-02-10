@@ -148,21 +148,21 @@ export async function RequisitaEnderecos(cep, logradouro, bairro, cidade, estado
         })
 }
 
-export async function RequisitaCadastrarFuncionario(nome, email, telefone, logradouro, bairro, cidade, estado, cep, dataInicialTrabalho, salario, senhaHash, especialidade, crm) {
+export async function RequisitaCadastrarFuncionario(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash, especialidade, CRM) {
     const usuario = {
         nome: nome,
         email: email,
         telefone: telefone,
+        cep: cep,
         logradouro: logradouro,
         bairro: bairro,
         cidade: cidade,
         estado: estado,
-        cep: cep,
-        dataInicialTrabalho: dataInicialTrabalho,
+        dataContrato: dataContrato,
         salario: salario,
         senhaHash: senhaHash,
         especialidade: especialidade,
-        crm: crm
+        CRM: CRM
 
     }
 
@@ -180,7 +180,7 @@ export async function RequisitaCadastrarFuncionario(nome, email, telefone, logra
             throw erro;
         })
 }
-export async function RequisitaCadastrarPaciente(nome, email, telefone, logradouro, bairro, cidade, estado, cep) {
+export async function RequisitaCadastrarPaciente(nome, email, telefone, logradouro, bairro, cidade, estado, cep, peso, altura, tipoSanguineo) {
     const usuario = {
         nome: nome,
         email: email,
@@ -189,7 +189,10 @@ export async function RequisitaCadastrarPaciente(nome, email, telefone, logradou
         bairro: bairro,
         cidade: cidade,
         estado: estado,
-        cep: cep
+        cep: cep,
+        peso: peso,
+        altura: altura, 
+        tipoSanguineo: tipoSanguineo
 
     }
 

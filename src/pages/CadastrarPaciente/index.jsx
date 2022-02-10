@@ -12,9 +12,12 @@ export function CadastrarPaciente() {
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
   const [cep, setCep] = useState("");
+  const [peso, setPeso] = useState("");
+  const [altura, setAltura] = useState("");
+  const [tipoSanguineo, setTipoSanguineo] = useState("");
 
   const handleSubmit = async () => {
-    let response = await RequisitaCadastrarPaciente(nome, email, telefone, logradouro, bairro, cidade, estado, cep)
+    let response = await RequisitaCadastrarPaciente(nome, email, telefone, logradouro, bairro, cidade, estado, cep, peso, altura, tipoSanguineo)
     console.log("Response handlesubmit: ",response)
     alert(response)
   }
@@ -50,6 +53,27 @@ export function CadastrarPaciente() {
             </Form.Group>
           </div>
         </div>
+        <Form.Label></Form.Label>
+          <div class="row">
+              <div class="col-lg-6">
+                <Form.Group>
+                  <Form.Label>Peso</Form.Label>
+                  <Form.Control type="peso" placeholder="" value={peso} onChange={e => setPeso(e.target.value)} required/>
+                </Form.Group>
+              </div>
+              <div class="col-lg-3">
+                <Form.Group>
+                  <Form.Label>Altura</Form.Label>
+                  <Form.Control type="altura" placeholder="" value={altura} onChange={e => setAltura(e.target.value)} required/>
+                </Form.Group>
+              </div>
+              <div class="col-lg-3">
+                <Form.Group>
+                  <Form.Label>Tipo Sanguíneo</Form.Label>
+                  <Form.Control type="tipoSanguineo" placeholder="" value={tipoSanguineo} onChange={e => setTipoSanguineo(e.target.value)} required/>
+                </Form.Group>
+              </div>
+          </div>
         <Form.Label></Form.Label>
         <div class="row">
         <div class="col-lg-6">
