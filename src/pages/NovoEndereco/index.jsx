@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 import { RequisitaEnderecos } from "../../api/api";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export function NovoEndereco() {
 
@@ -16,23 +16,23 @@ export function NovoEndereco() {
     alert(response)
   }
   return (
-    <div class="container">
-      <div class="alert alert-info">
+    <div className="container">
+      <div className="alert alert-info">
         Adicionar endereço
       </div>
       <p>
         Os endereços adicionados aqui, serão armazenados em nossa base de endereços e usados para melhor atendê-los.
       </p>
 
-      <Form class="form-endereco" action="/" method="post" >
-        <div class="row">
-          <div class="col-lg-6">
+      <Form className="form-endereco" action="/" method="post" >
+        <div className="row">
+          <div className="col-lg-6">
             <Form.Group>
               <Form.Label>Logradouro</Form.Label>
               <Form.Control type="logradouro" placeholder="" maxLength={50} value={logradouro} onChange={e => setLogradouro(e.target.value)} required />
             </Form.Group>
           </div>
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <Form.Group>
               <Form.Label>Bairro</Form.Label>
               <Form.Control type="bairro" placeholder="" maxLength={50} value={bairro} onChange={e => setBairro(e.target.value)} required />
@@ -40,20 +40,20 @@ export function NovoEndereco() {
           </div>
         </div>
         <Form.Label></Form.Label>
-        <div class="row">
-          <div class="col-lg-6">
+        <div className="row">
+          <div className="col-lg-6">
             <Form.Group>
               <Form.Label>Cidade</Form.Label>
               <Form.Control type="cidade" placeholder="" maxLength={50} value={cidade} onChange={e => setCidade(e.target.value)} required />
             </Form.Group>
           </div>
-          <div class="col-lg-3">
+          <div className="col-lg-3">
             <Form.Group>
               <Form.Label>Estado</Form.Label>
               <Form.Control type="estado" placeholder="Ex.: Minas Gerais" maxLength={50} value={estado} onChange={e => setEstado(e.target.value)} required />
             </Form.Group>
           </div>
-          <div class="col-lg-3">
+          <div className="col-lg-3">
             <Form.Group>
               <Form.Label>CEP</Form.Label>
               <Form.Control type="cep" placeholder="Apenas números" maxLength={8} value={cep} onChange={e => setCep(e.target.value)} required />
@@ -62,8 +62,8 @@ export function NovoEndereco() {
         </div>
         <Form.Label></Form.Label>
       </Form>
-      <div class="form-group col-md-12 text-center">
-        <button id="CadastraEndereco" name="cadastrar" class="btn btn-primary" onClick={handleSubmit}>Cadastrar</button>
+      <div className="form-group col-md-12 text-center">
+        <button id="CadastraEndereco" name="cadastrar" className="btn btn-primary" onClick={handleSubmit}>Cadastrar</button>
       </div>
     </div>
   );

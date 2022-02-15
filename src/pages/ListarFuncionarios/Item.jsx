@@ -8,7 +8,7 @@ const Item = ({ item }) => {
                 <td>{item.nome}</td>
                 <td>{item.email}</td>
                 <td>{item.telefone}</td>
-                <td>{item.salario}</td>                
+                <td>R$ {item.salario}</td>                
             </tr>
     );
 }

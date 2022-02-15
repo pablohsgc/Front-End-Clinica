@@ -64,7 +64,7 @@ export async function RequisitaListarAgendamentos(email, senha) {
         })
 }
 
-export async function RequisitaListarEnderecos(email, senha) {
+export async function RequisitaListarEnderecos() {
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 
     return await fetch(BASE_URL + "/enderecos", {
@@ -148,8 +148,8 @@ export async function RequisitaEnderecos(cep, logradouro, bairro, cidade, estado
         })
 }
 
-export async function RequisitaCadastrarMedico(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash, especialidade, CRM) {
-    const usuario = {
+export async function RequisitaCadastrarMedico(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash, especialidade, crm) {
+    const dados = {
         nome: nome,
         email: email,
         telefone: telefone,
@@ -162,15 +162,15 @@ export async function RequisitaCadastrarMedico(nome,email,telefone,cep,logradour
         salario: salario,
         senhaHash: senhaHash,
         especialidade: especialidade,
-        CRM: CRM
-
+        crm: crm
     }
 
+    console.log(dados)
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 
     return await fetch(BASE_URL + "/medicos", {
         method: 'POST',
-        body: JSON.stringify(usuario),
+        body: JSON.stringify(dados),
         headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
     })
         .then(response => response.json())
@@ -181,8 +181,8 @@ export async function RequisitaCadastrarMedico(nome,email,telefone,cep,logradour
         })
 }
 
-export async function RequisitaCadastrarFuncionario(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash, especialidade, CRM) {
-    const usuario = {
+export async function RequisitaCadastrarFuncionario(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash) {
+    const dados = {
         nome: nome,
         email: email,
         telefone: telefone,
@@ -193,17 +193,14 @@ export async function RequisitaCadastrarFuncionario(nome,email,telefone,cep,logr
         estado: estado,
         dataContrato: dataContrato,
         salario: salario,
-        senhaHash: senhaHash,
-        especialidade: especialidade,
-        CRM: CRM
-
+        senhaHash: senhaHash
     }
 
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 
     return await fetch(BASE_URL + "/funcionarios", {
         method: 'POST',
-        body: JSON.stringify(usuario),
+        body: JSON.stringify(dados),
         headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
     })
         .then(response => response.json())
@@ -214,7 +211,7 @@ export async function RequisitaCadastrarFuncionario(nome,email,telefone,cep,logr
         })
 }
 export async function RequisitaCadastrarPaciente(nome, email, telefone, logradouro, bairro, cidade, estado, cep, peso, altura, tipoSanguineo) {
-    const usuario = {
+    const dados = {
         nome: nome,
         email: email,
         telefone: telefone,
@@ -226,14 +223,13 @@ export async function RequisitaCadastrarPaciente(nome, email, telefone, logradou
         peso: peso,
         altura: altura, 
         tipoSanguineo: tipoSanguineo
-
     }
 
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 
     return await fetch(BASE_URL + "/pacientes", {
         method: 'POST',
-        body: JSON.stringify(usuario),
+        body: JSON.stringify(dados),
         headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
     })
         .then(response => response.json())

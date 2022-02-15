@@ -6,6 +6,7 @@ export default function Navegacao(){
   const {authenticated, logout, user} = useContext(AuthContext);  
   
   return (
+
       <nav className="navbar navbar-expand-lg navbar-dark bg-info mb-1 menu-navegacao">
       <a className="navbar-brand" href="/">Clinica Viver Bem</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +33,11 @@ export default function Navegacao(){
             </li>
           }
 
-  
+          
+          <li className="nav-item">
+            <a className="nav-link" href="/galeria">Galeria</a>
+          </li>
+
           {
             user &&
             <li className="nav-item dropdown">
@@ -56,20 +61,16 @@ export default function Navegacao(){
             <a className="nav-link" href="/enderecos">Novo Endereço</a>
           </li>
 
-          <li className="nav-item">
-            <a className="nav-link" href="/galeria">Galeria</a>
-          </li>
-
         </ul>
 
         {
           authenticated ? <a href="/login">
           <button className="btn btn-outline-danger my-2 my-sm-0" onClick={logout}>Sair</button>
           </a> : <a href="/login">
-          <button className="btn btn-secondary my-2 my-sm-0">Logar</button>
+          <button className="btn btn-secondary bg-white text-info my-2 my-sm-0">Logar</button>
           </a>
         }  
       </div>
-  </nav>
+    </nav>
     );
 }

@@ -9,19 +9,19 @@ import img6 from './img/img6.jpg';
 
 export function Galeria(){
     return(
-        <div class="container">
-        <div class="alert alert-info">
+        <div className="container">
+        <div className="alert alert-info">
             Nossa Clínica
         </div>
-            <div class="row">
-                <div class="col-lg-4"> <img class="imagens-galeria" src={img1}/> </div>
-                <div class="col-lg-4"> <img class="imagens-galeria" src={img2}/> </div>
-                <div class="col-lg-4"> <img class="imagens-galeria" src={img3}/> </div>
+            <div className="row">
+                <div className="col-lg-4"> <img className="imagens-galeria" src={img1} alt="img1"/> </div>
+                <div className="col-lg-4"> <img className="imagens-galeria" src={img2} alt="img2"/> </div>
+                <div className="col-lg-4"> <img className="imagens-galeria" src={img3} alt="img3"/> </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4"> <img class="imagens-galeria" src={img4}/> </div>
-                <div class="col-lg-4"> <img class="imagens-galeria" src={img5}/> </div>
-                <div class="col-lg-4"> <img class="imagens-galeria" src={img6}/> </div>
+            <div className="row">
+                <div className="col-lg-4"> <img className="imagens-galeria" src={img4} alt="img4"/> </div>
+                <div className="col-lg-4"> <img className="imagens-galeria" src={img5} alt="img5"/> </div>
+                <div className="col-lg-4"> <img className="imagens-galeria" src={img6} alt="img6"/> </div>
             </div>
 
     </div>
