@@ -18,8 +18,11 @@ export function CadastrarPaciente() {
 
   const handleSubmit = async () => {
     let response = await RequisitaCadastrarPaciente(nome, email, telefone, logradouro, bairro, cidade, estado, cep, peso, altura, tipoSanguineo)
-    console.log("Response handlesubmit: ", response)
-    alert(response)
+    if (response.erro) {
+      alert(response.erro);
+    } else {
+      alert(response.mensagem);
+    }
   }
 
   const buscarEndereco = async (cep) => {
@@ -32,16 +35,13 @@ export function CadastrarPaciente() {
       if (response.erro) {
         alert(response.erro);
       } else {
-        alert(response.mensagem);
+        setLogradouro(response.logradouro);
+        setBairro(response.bairro);
+        setCidade(response.cidade);
+        setEstado(response.estado);
       }
-
-      setLogradouro(response.logradouro);
-      setBairro(response.bairro);
-      setCidade(response.cidade);
-      setEstado(response.estado);
     }
   }
-
 
   return (
     <div className="container">

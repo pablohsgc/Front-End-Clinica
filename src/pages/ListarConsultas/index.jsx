@@ -16,13 +16,11 @@ export function ListarConsultas() {
             const response = await RequisitaAgendaMedico(data);
             if (response.erro) {
                 alert(response.erro);
-            }
-
-            setItem(response);
+            }else{
+                setItem(response);
+            }            
         }
-
         buscarConsultas();
-
     }, [data])
 
     return (

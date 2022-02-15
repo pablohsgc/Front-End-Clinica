@@ -29,21 +29,17 @@ export function Agendamento() {
       if (response.erro) {
         alert(response.erro);
       } else {
-        alert(response.mensagem);
-      }
+        const lista = [];
 
-      const lista = [];
+        lista.push(<option key="especialidade_default" value="0">Selecione uma especialidade médica!</option>);
 
-      lista.push(<option key="especialidade_default" value="0">Selecione uma especialidade médica!</option>);
+        for (let i = 0; i < response.length; i++)
+          lista.push(<option key={"especialidade_" + i} value={response[i].especialidade}>{response[i].especialidade}</option>)
 
-      for (let i = 0; i < response.length; i++)
-        lista.push(<option key={"especialidade_" + i} value={response[i].especialidade}>{response[i].especialidade}</option>)
-
-      setEspecialidades(lista);
+        setEspecialidades(lista);
+      }      
     }
-
     buscarEspecialidades();
-
   }, []);
 
   const adicionaHorarios = async (codigoMedicoEscolhido, dataEscolhida) => { 
@@ -51,17 +47,15 @@ export function Agendamento() {
     if (response.erro) {
       alert(response.erro);
     } else {
-      alert(response.mensagem);
-    }
+      const lista = [];
 
-    const lista = [];
+      lista.push(<option key="horario_default" value="0">Selecione um horario!</option>);
 
-    lista.push(<option key="horario_default" value="0">Selecione um horario!</option>);
+      for (let i = 0; i < response.length; i++)
+        lista.push(<option key={"horario_" + i} value={response[i].hora}>{response[i].hora}</option>)
 
-    for (let i = 0; i < response.length; i++)
-      lista.push(<option key={"horario_" + i} value={response[i].hora}>{response[i].hora}</option>)
-
-    setHorarios(lista);
+      setHorarios(lista);
+    }    
   };
 
   const adicionaMedicos = async (especialidade) => {
@@ -69,17 +63,15 @@ export function Agendamento() {
     if (response.erro) {
       alert(response.erro);
     } else {
-      alert(response.mensagem);
-    }
+      const lista = [];
 
-    const lista = [];
+      lista.push(<option key="medico_default" value="0">Selecione um médico!</option>);
 
-    lista.push(<option key="medico_default" value="0">Selecione um médico!</option>);
+      for (let i = 0; i < response.length; i++)
+        lista.push(<option key={"medico_" + i} value={response[i].codigo}>{response[i].nome}</option>)
 
-    for (let i = 0; i < response.length; i++)
-      lista.push(<option key={"medico_" + i} value={response[i].codigo}>{response[i].nome}</option>)
-
-    setMedicos(lista);
+      setMedicos(lista);
+    }    
   };
 
   const escolheMedico = async (codigoMedicoEscolhido) => {

@@ -14,13 +14,11 @@ export function ListarFuncionarios() {
             const response = await RequisitaListarFuncionarios();
             if (response.erro) {
                 alert(response.erro);
-            }
-
-            setItem(response);
+            }else{
+                setItem(response);
+            }            
         }
-
         buscarFuncionarios();
-
     }, [])
 
     return (

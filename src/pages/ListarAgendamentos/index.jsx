@@ -14,13 +14,11 @@ export function ListarAgendamentos() {
             const response = await RequisitaListarAgendamentos();
             if (response.erro) {
                 alert(response.erro);
+            }else{
+                setItem(response);
             }
-
-            setItem(response);
         }
-
         buscarAgendamentos();
-
     }, [])
 
     return (

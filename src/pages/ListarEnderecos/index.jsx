@@ -14,13 +14,11 @@ export function ListarEnderecos() {
             const response = await RequisitaListarEnderecos();
             if (response.erro) {
                 alert(response.erro);
-            }
-
-            setItem(response);
+            }else{
+                setItem(response);
+            }            
         }
-
         buscarEnderecos();
-
     }, [])
 
     return (

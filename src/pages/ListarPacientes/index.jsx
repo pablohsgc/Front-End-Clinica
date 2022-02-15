@@ -14,13 +14,11 @@ export function ListarPacientes() {
             const response = await RequisitaListarPacientes();
             if (response.erro) {
                 alert(response.erro);
-            }
-
-            setItem(response);
+            }else{
+                setItem(response);
+            }            
         }
-
         buscarPacientes();
-
     }, [])
 
     return (
