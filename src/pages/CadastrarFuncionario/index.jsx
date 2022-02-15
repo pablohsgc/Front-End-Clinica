@@ -85,6 +85,27 @@ export function CadastrarFuncionario() {
         </div>
         <Form.Label></Form.Label>
         <div className="row">
+          <div className="col-lg-3">
+            <Form.Group>
+              <Form.Label>CEP (Digite para autocompletar endereço)</Form.Label>
+              <Form.Control type="cep" placeholder="Apenas números" maxLength={8} value={cep} onChange={e => buscarEndereco(e.target.value)} required />
+            </Form.Group>
+          </div>
+          <div className="col-lg-6">
+            <Form.Group>
+              <Form.Label>Cidade</Form.Label>
+              <Form.Control type="cidade" placeholder="" maxLength={50} value={cidade} onChange={e => setCidade(e.target.value)} required />
+            </Form.Group>
+          </div>
+          <div className="col-lg-3">
+            <Form.Group>
+              <Form.Label>Estado</Form.Label>
+              <Form.Control type="estado" placeholder="Ex.: Minas Gerais" maxLength={50} value={estado} onChange={e => setEstado(e.target.value)} required />
+            </Form.Group>
+          </div>
+        </div>
+        <Form.Label></Form.Label>
+        <div className="row">
           <div className="col-lg-6">
             <Form.Group>
               <Form.Label>Logradouro</Form.Label>
@@ -99,74 +120,6 @@ export function CadastrarFuncionario() {
           </div>
         </div>
         <Form.Label></Form.Label>
-        <div className="row">
-          <div className="col-lg-6">
-            <Form.Group>
-              <Form.Label>Cidade</Form.Label>
-              <Form.Control type="cidade" placeholder="" maxLength={50} value={cidade} onChange={e => setCidade(e.target.value)} required />
-            </Form.Group>
-          </div>
-          <div className="col-lg-3">
-            <Form.Group>
-              <Form.Label>Estado</Form.Label>
-              <Form.Control type="estado" placeholder="Ex.: Minas Gerais" maxLength={50} value={estado} onChange={e => setEstado(e.target.value)} required />
-            </Form.Group>
-          </div>
-          <div className="col-lg-3">
-            <Form.Group>
-              <Form.Label>CEP (Digite para autocompletar endereço)</Form.Label>
-              <Form.Control type="cep" placeholder="Apenas números" maxLength={8} value={cep} onChange={e => buscarEndereco(e.target.value)} required />
-            </Form.Group>
-          </div>
-        </div>
-        <Form.Label></Form.Label>
-        <div className="row">
-          <div className="col-lg-4">
-            <Form.Group>
-              <Form.Label>Data de Início do Contrato de Trabalho</Form.Label>
-              <input type="text" className="form-control" name="dataContrato" placeholder="dia/mês/ano" value={dataContrato} onChange={e => setDataContrato(e.target.value)} required />
-            </Form.Group>
-          </div>
-          <div className="col-lg-4">
-            <Form.Group>
-              <Form.Label>Salário (R$)</Form.Label>
-              <Form.Control type="text" className="form-control" name="salario" placeholder="Ex: 2200.00" maxLength={8} value={salario} onChange={e => setSalario(e.target.value)} required />
-            </Form.Group>
-          </div>
-          <div className="col-lg-4">
-            <Form.Group>
-              <Form.Label>Senha</Form.Label>
-              <Form.Control type="text" className="form-control" name="senhaHash" placeholder="Até 30 caracteres" maxLength={30} value={senhaHash} onChange={e => setSenhaHash(e.target.value)} required />
-            </Form.Group>
-          </div>
-        </div>
-        <Form.Label></Form.Label>
-        <div className="row">
-          <div className="col-lg-12">
-            <Form.Group className="alert alert-warning" >
-              <div className="topping">
-                <input type="checkbox" id="topping" name="topping" value="CadastroFuncMedico" checked={isChecked} onChange={handleOnChange} />
-                &nbsp;Funcionário médico
-              </div>
-            </Form.Group>
-          </div>
-        </div>
-        <Form.Label></Form.Label>
-        {isChecked && <div className="row">
-            <div className="col-lg-8">
-              <Form.Group className="alert alert-warning" >
-                <Form.Label>Especialidade</Form.Label>
-                <Form.Control type="text" className="form-control" name="especialidade" placeholder="Ex.: Pediatria" maxLength={20} value={especialidade} onChange={e => setEspecialidade(e.target.value)} required />
-              </Form.Group>
-            </div>
-            <div className="col-lg-4">
-              <Form.Group className="alert alert-warning" >
-                <Form.Label>CRM</Form.Label>
-                <Form.Control type="text" className="form-control" name="CRM" placeholder="000000" maxLength={6} value={CRM} onChange={e => setCrm(e.target.value)} required />
-              </Form.Group>
-            </div>
-          </div>
-        }
       </Form>
       <div className="form-group col-md-12 text-center">
         <button id="CadastraFuncionario" name="Cadastrar" className="btn btn-primary" onClick={handleSubmit}>Cadastrar</button>
