@@ -291,3 +291,16 @@ export async function RequisitaHorariosDisponiveis(codigoMedico, data) {
         })
 }
 
+export async function RequisitaEndereco(cep) {
+    return await fetch(BASE_URL + "/enderecos/" + cep, {
+        method: 'GET',
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+    })
+        .then(response => response.json())
+        .then((json) => {
+            return json
+        }).catch((erro) => {
+            throw erro;
+        })
+}
+
