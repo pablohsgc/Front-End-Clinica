@@ -12,8 +12,11 @@ export function NovoEndereco() {
 
   const handleSubmit = async () => {
     let response = await RequisitaEnderecos(cep, logradouro, bairro, cidade, estado);
-    console.log("Response handlesubmit: ", response)
-    alert(response)
+    if (response.erro) {
+      alert(response.erro);
+    } else {
+      alert(response.mensagem);
+    }
   }
   return (
     <div className="container">

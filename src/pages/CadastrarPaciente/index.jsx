@@ -29,6 +29,11 @@ export function CadastrarPaciente() {
 
     if (tam.length === 8) {
       response = await RequisitaEndereco(cep);
+      if (response.erro) {
+        alert(response.erro);
+      } else {
+        alert(response.mensagem);
+      }
 
       setLogradouro(response.logradouro);
       setBairro(response.bairro);

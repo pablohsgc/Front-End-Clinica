@@ -11,7 +11,11 @@ export function ListarAgendamentos() {
     useEffect(() => {
 
         async function buscarAgendamentos() {
-            const response = await RequisitaListarAgendamentos();            
+            const response = await RequisitaListarAgendamentos();
+            if (response.erro) {
+                alert(response.erro);
+            }
+
             setItem(response);
         }
 

@@ -12,6 +12,9 @@ export function ListarPacientes() {
 
         async function buscarPacientes() {
             const response = await RequisitaListarPacientes();
+            if (response.erro) {
+                alert(response.erro);
+            }
 
             setItem(response);
         }

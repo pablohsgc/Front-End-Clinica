@@ -11,11 +11,14 @@ export function ListarFuncionarios() {
     useEffect(() => {
 
         async function buscarFuncionarios() {
-            const response = await RequisitaListarFuncionarios();           
-            
+            const response = await RequisitaListarFuncionarios();
+            if (response.erro) {
+                alert(response.erro);
+            }
+
             setItem(response);
         }
-        
+
         buscarFuncionarios();
 
     }, [])
@@ -23,7 +26,7 @@ export function ListarFuncionarios() {
     return (
         <div className='container'>
             <h1 className='text-center'>Funcionarios</h1>
-            <h5> 
+            <h5>
                 <ItemListado itemListado={itemListado} />
             </h5>
         </div >
