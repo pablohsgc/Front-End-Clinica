@@ -101,13 +101,13 @@ export function Agendamento(){
               <div className="col-lg-8">
                 <Form.Group>
                   <Form.Label>Nome Completo</Form.Label>
-                  <Form.Control type="nome" placeholder="" value={nome} onChange={e => setNome(e.target.value)} required/>
+                  <Form.Control type="nome" placeholder="" maxLength={50} value={nome} onChange={e => setNome(e.target.value)} required/>
                 </Form.Group>
               </div>
               <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>CPF</Form.Label>
-                  <Form.Control type="cpf" placeholder="Apenas números" value={cpf} onChange={e => setCpf(e.target.value)} required/>
+                <Form.Control type="cpf" placeholder="Apenas números" value={cpf} onChange={e => setCpf(e.target.value)} required/>
                 </Form.Group>
               </div>
           </div>
@@ -116,13 +116,13 @@ export function Agendamento(){
               <div className="col-lg-8">
                 <Form.Group>
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="" value={email} onChange={e => setEmail(e.target.value)} required/>
+                <Form.Control type="email" placeholder="" maxLength={50} value={email} onChange={e => setEmail(e.target.value)} required/>
                 </Form.Group>
               </div>
               <div className="col-lg-4">
                 <Form.Group>
                   <Form.Label>Telefone</Form.Label>
-                  <Form.Control type="telefone" placeholder="Apenas números" value={telefone} onChange={e => setTelefone(e.target.value)} required/>
+                <Form.Control type="telefone" placeholder="Apenas números" maxLength={20} value={telefone} onChange={e => setTelefone(e.target.value)} required/>
                 </Form.Group>
               </div>
           </div>

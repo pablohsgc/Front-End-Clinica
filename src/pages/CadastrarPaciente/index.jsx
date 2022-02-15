@@ -49,7 +49,7 @@ export function CadastrarPaciente() {
           <div class="col-lg-12">
             <Form.Group>
               <Form.Label>Nome Completo</Form.Label>
-              <Form.Control type="text" class="form-control" name="nome" placeholder="" value={nome} onChange={e => setNome(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="nome" placeholder="" maxLength={50} value={nome} onChange={e => setNome(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -58,13 +58,13 @@ export function CadastrarPaciente() {
           <div class="col-lg-8">
             <Form.Group>
               <Form.Label>Email</Form.Label>
-              <Form.Control type="text" class="form-control" name="email" placeholder="" value={email} onChange={e => setEmail(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="email" placeholder="" maxLength={50} value={email} onChange={e => setEmail(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-4">
             <Form.Group>
               <Form.Label>Telefone</Form.Label>
-              <Form.Control type="text" class="form-control" name="telefone" placeholder="Apenas números" value={telefone} onChange={e => setTelefone(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="telefone" placeholder="Apenas números" maxLength={20} value={telefone} onChange={e => setTelefone(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -73,19 +73,19 @@ export function CadastrarPaciente() {
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Peso (Kg)</Form.Label>
-              <Form.Control type="peso" placeholder="00.0" value={peso} onChange={e => setPeso(e.target.value)} required />
+              <Form.Control type="peso" placeholder="00.0" maxLength={4} value={peso} onChange={e => setPeso(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-3">
             <Form.Group>
               <Form.Label>Altura (metros)</Form.Label>
-              <Form.Control type="altura" placeholder="0.00" step='0.01' value={altura} onChange={e => setAltura(e.target.value)} required />
+              <Form.Control type="altura" placeholder="0.00" step='0.01' maxLength={5} value={altura} onChange={e => setAltura(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-3">
             <Form.Group>
               <Form.Label>Tipo Sanguíneo</Form.Label>
-              <Form.Control type="tipoSanguineo" placeholder="Ex.: A+" value={tipoSanguineo} onChange={e => setTipoSanguineo(e.target.value)} required />
+              <Form.Control type="tipoSanguineo" placeholder="Ex.: A+" maxLength={10} value={tipoSanguineo} onChange={e => setTipoSanguineo(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -94,13 +94,13 @@ export function CadastrarPaciente() {
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Logradouro</Form.Label>
-              <Form.Control type="logradouro" placeholder="" value={logradouro} onChange={e => setLogradouro(e.target.value)} required />
+              <Form.Control type="logradouro" placeholder="" maxLength={50} value={logradouro} onChange={e => setLogradouro(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Bairro</Form.Label>
-              <Form.Control type="bairro" placeholder="" value={bairro} onChange={e => setBairro(e.target.value)} required />
+              <Form.Control type="bairro" placeholder="" maxLength={50} value={bairro} onChange={e => setBairro(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -109,13 +109,13 @@ export function CadastrarPaciente() {
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Cidade</Form.Label>
-              <Form.Control type="cidade" placeholder="" value={cidade} onChange={e => setCidade(e.target.value)} required />
+              <Form.Control type="cidade" placeholder="" maxLength={50} value={cidade} onChange={e => setCidade(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-3">
             <Form.Group>
               <Form.Label>Estado</Form.Label>
-              <Form.Control type="estado" placeholder="Ex.: Minas Gerais" value={estado} onChange={e => setEstado(e.target.value)} required />
+              <Form.Control type="estado" placeholder="Ex.: Minas Gerais" maxLength={50} value={estado} onChange={e => setEstado(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-3">

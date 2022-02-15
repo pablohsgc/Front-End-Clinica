@@ -29,13 +29,13 @@ export function NovoEndereco() {
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Logradouro</Form.Label>
-              <Form.Control type="logradouro" placeholder="" value={logradouro} onChange={e => setLogradouro(e.target.value)} required />
+              <Form.Control type="logradouro" placeholder="" maxLength={50} value={logradouro} onChange={e => setLogradouro(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Bairro</Form.Label>
-              <Form.Control type="bairro" placeholder="" value={bairro} onChange={e => setBairro(e.target.value)} required />
+              <Form.Control type="bairro" placeholder="" maxLength={50} value={bairro} onChange={e => setBairro(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -44,19 +44,19 @@ export function NovoEndereco() {
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Cidade</Form.Label>
-              <Form.Control type="cidade" placeholder="" value={cidade} onChange={e => setCidade(e.target.value)} required />
+              <Form.Control type="cidade" placeholder="" maxLength={50} value={cidade} onChange={e => setCidade(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-3">
             <Form.Group>
               <Form.Label>Estado</Form.Label>
-              <Form.Control type="estado" placeholder="Ex.: Minas Gerais" value={estado} onChange={e => setEstado(e.target.value)} required />
+              <Form.Control type="estado" placeholder="Ex.: Minas Gerais" maxLength={50} value={estado} onChange={e => setEstado(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-3">
             <Form.Group>
               <Form.Label>CEP</Form.Label>
-              <Form.Control type="cep" placeholder="Apenas números" value={cep} onChange={e => setCep(e.target.value)} required />
+              <Form.Control type="cep" placeholder="Apenas números" maxLength={8} value={cep} onChange={e => setCep(e.target.value)} required />
             </Form.Group>
           </div>
         </div>

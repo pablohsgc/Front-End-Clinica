@@ -63,7 +63,7 @@ export function CadastrarFuncionario() {
           <div class="col-lg-12">
             <Form.Group>
               <Form.Label>Nome Completo</Form.Label>
-              <Form.Control type="text" class="form-control" name="nome" placeholder="" value={nome} onChange={e => setNome(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="nome" placeholder="" maxLength={50} value={nome} onChange={e => setNome(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -72,13 +72,13 @@ export function CadastrarFuncionario() {
           <div class="col-lg-8">
             <Form.Group>
               <Form.Label>Email</Form.Label>
-              <Form.Control type="text" class="form-control" name="email" placeholder="" value={email} onChange={e => setEmail(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="email" placeholder="" maxLength={50} value={email} onChange={e => setEmail(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-4">
             <Form.Group>
               <Form.Label>Telefone</Form.Label>
-              <Form.Control type="text" class="form-control" name="telefone" placeholder="Apenas números" value={telefone} onChange={e => setTelefone(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="telefone" placeholder="Apenas números" maxLength={20} value={telefone} onChange={e => setTelefone(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -87,13 +87,13 @@ export function CadastrarFuncionario() {
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Logradouro</Form.Label>
-              <Form.Control type="logradouro" placeholder="" value={logradouro} onChange={e => setLogradouro(e.target.value)} required />
+              <Form.Control type="logradouro" placeholder="" maxLength={50} value={logradouro} onChange={e => setLogradouro(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Bairro</Form.Label>
-              <Form.Control type="bairro" placeholder="" value={bairro} onChange={e => setBairro(e.target.value)} required />
+              <Form.Control type="bairro" placeholder="" maxLength={50} value={bairro} onChange={e => setBairro(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -102,13 +102,13 @@ export function CadastrarFuncionario() {
           <div class="col-lg-6">
             <Form.Group>
               <Form.Label>Cidade</Form.Label>
-              <Form.Control type="cidade" placeholder="" value={cidade} onChange={e => setCidade(e.target.value)} required />
+              <Form.Control type="cidade" placeholder="" maxLength={50} value={cidade} onChange={e => setCidade(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-3">
             <Form.Group>
               <Form.Label>Estado</Form.Label>
-              <Form.Control type="estado" placeholder="Ex.: Minas Gerais" value={estado} onChange={e => setEstado(e.target.value)} required />
+              <Form.Control type="estado" placeholder="Ex.: Minas Gerais" maxLength={50} value={estado} onChange={e => setEstado(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-3">
@@ -129,13 +129,13 @@ export function CadastrarFuncionario() {
           <div class="col-lg-4">
             <Form.Group>
               <Form.Label>Salário (R$)</Form.Label>
-              <Form.Control type="text" class="form-control" name="salario" placeholder="Ex: 2200.00" value={salario} onChange={e => setSalario(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="salario" placeholder="Ex: 2200.00" maxLength={8} value={salario} onChange={e => setSalario(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-4">
             <Form.Group>
               <Form.Label>Senha</Form.Label>
-              <Form.Control type="text" class="form-control" name="senhaHash" placeholder="Até 30 caracteres" value={senhaHash} onChange={e => setSenhaHash(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="senhaHash" placeholder="Até 30 caracteres" maxLength={30} value={senhaHash} onChange={e => setSenhaHash(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -156,13 +156,13 @@ export function CadastrarFuncionario() {
           <div class="col-lg-8">
             <Form.Group class="alert alert-warning" >
               <Form.Label>Especialidade</Form.Label>
-              <Form.Control type="text" class="form-control" name="especialidade" placeholder="Ex.: Pediatria" value={especialidade} onChange={e => setEspecialidade(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="especialidade" placeholder="Ex.: Pediatria" maxLength={20} value={especialidade} onChange={e => setEspecialidade(e.target.value)} required />
             </Form.Group>
           </div>
           <div class="col-lg-4">
             <Form.Group class="alert alert-warning" >
               <Form.Label>CRM</Form.Label>
-              <Form.Control type="text" class="form-control" name="CRM" placeholder="000000" value={CRM} onChange={e => setCrm(e.target.value)} required />
+              <Form.Control type="text" class="form-control" name="CRM" placeholder="000000" maxLength={6} value={CRM} onChange={e => setCrm(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
