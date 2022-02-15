@@ -8,7 +8,7 @@ const Item = ({ item }) => {
     return (
         <tr className='text-center'>
             <td>{item.codigo}</td>
-            <td>{data.getDate()}/{data.getMonth()}/{data.getFullYear()}</td>
+            <td>{data.getDate()}/{data.getMonth() + 1}/{data.getFullYear()}</td>
             <td>{item.horario} horas</td>
             <td>{item.nome}</td>
             <td>{item.email}</td>
