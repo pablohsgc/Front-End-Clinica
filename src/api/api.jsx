@@ -148,6 +148,39 @@ export async function RequisitaEnderecos(cep, logradouro, bairro, cidade, estado
         })
 }
 
+export async function RequisitaCadastrarMedico(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash, especialidade, CRM) {
+    const usuario = {
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        cep: cep,
+        logradouro: logradouro,
+        bairro: bairro,
+        cidade: cidade,
+        estado: estado,
+        dataContrato: dataContrato,
+        salario: salario,
+        senhaHash: senhaHash,
+        especialidade: especialidade,
+        CRM: CRM
+
+    }
+
+    let user = JSON.parse(localStorage.getItem('usuario-tp2'))
+
+    return await fetch(BASE_URL + "/medicos", {
+        method: 'POST',
+        body: JSON.stringify(usuario),
+        headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
+    })
+        .then(response => response.json())
+        .then((json) => {
+            return json
+        }).catch((erro) => {
+            throw erro;
+        })
+}
+
 export async function RequisitaCadastrarFuncionario(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash, especialidade, CRM) {
     const usuario = {
         nome: nome,

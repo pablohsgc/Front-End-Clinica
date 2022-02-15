@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 import './func.css';
-import { RequisitaCadastrarFuncionario } from "../../api/api";
+import { RequisitaCadastrarFuncionario, RequisitaCadastrarMedico } from "../../api/api";
 import { useState, useEffect } from 'react';
 
 export function CadastrarFuncionario() {
@@ -18,7 +18,18 @@ export function CadastrarFuncionario() {
   const [senhaHash, setSenhaHash] = useState("");
   const [especialidade, setEspecialidade] = useState("");
   const [CRM, setCrm] = useState("");
-  
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
+    const handleSubmit = async () => {
+      let response = await RequisitaCadastrarMedico(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash, especialidade, CRM)
+      console.log("Response handlesubmit: ",response)
+      alert(response)
+    }
+  };
+
 
   const handleSubmit = async () => {
     let response = await RequisitaCadastrarFuncionario(nome,email,telefone,cep,logradouro,bairro,cidade,estado,dataContrato,salario,senhaHash, especialidade, CRM)
@@ -117,7 +128,11 @@ export function CadastrarFuncionario() {
         <div class="row">
           <div class="col-lg-12">
             <Form.Group class="alert alert-warning" >
-              <Form.Label>Preencha os campos abaixo somente se for médico</Form.Label>
+              <Form.Label >Marque o checkbox e Preencha os campos abaixo somente se for médico</Form.Label>
+              <div className="topping">
+                <input type="checkbox"  id="topping" name="topping" value="CadastroFuncMedico" checked={isChecked} onChange={handleOnChange} />
+                     Sou Médico(a)
+                </div>
             </Form.Group>
           </div>
         </div>
@@ -136,7 +151,6 @@ export function CadastrarFuncionario() {
             </Form.Group>
           </div>
         </div>
-
       </Form>
       <div class="form-group col-md-12 text-center">
         <button id="CadastraFuncionario" name="Cadastrar" class="btn btn-primary" onClick={handleSubmit}>Cadastrar</button>
