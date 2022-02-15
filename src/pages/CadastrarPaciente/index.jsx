@@ -69,7 +69,7 @@ export function CadastrarPaciente() {
           <div className="col-lg-4">
             <Form.Group>
               <Form.Label>Telefone</Form.Label>
-              <Form.Control type="text" className="form-control" name="telefone" placeholder="Apenas números" maxLength={20} value={telefone} onChange={e => setTelefone(e.target.value)} required />
+              <Form.Control type="number" className="form-control" name="telefone" placeholder="Apenas números" maxLength={20} value={telefone} onChange={e => setTelefone(e.target.value)} required />
             </Form.Group>
           </div>
         </div>
@@ -78,13 +78,13 @@ export function CadastrarPaciente() {
           <div className="col-lg-6">
             <Form.Group>
               <Form.Label>Peso (Kg)</Form.Label>
-              <Form.Control type="peso" placeholder="00.0" maxLength={4} value={peso} onChange={e => setPeso(e.target.value)} required />
+              <Form.Control type="number" placeholder="00.0" min={0} maxLength={4} value={peso} onChange={e => setPeso(e.target.value)} required />
             </Form.Group>
           </div>
           <div className="col-lg-3">
             <Form.Group>
               <Form.Label>Altura (metros)</Form.Label>
-              <Form.Control type="altura" placeholder="0.00" step='0.01' maxLength={5} value={altura} onChange={e => setAltura(e.target.value)} required />
+              <Form.Control type="number" placeholder="0.00" step='0.01' min={0} maxLength={5} value={altura} onChange={e => setAltura(e.target.value)} required />
             </Form.Group>
           </div>
           <div className="col-lg-3">
@@ -99,7 +99,7 @@ export function CadastrarPaciente() {
           <div className="col-lg-3">
             <Form.Group>
               <Form.Label>CEP (Digite para autocompletar endereço)</Form.Label>
-              <Form.Control type="cep" placeholder="Apenas números" maxLength={8} value={cep} onChange={e => buscarEndereco(e.target.value)} required />
+              <Form.Control type="number" placeholder="Apenas números" maxLength={8} value={cep} onChange={e => buscarEndereco(e.target.value)} required />
             </Form.Group>
           </div>
           <div className="col-lg-6">

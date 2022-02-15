@@ -33,7 +33,7 @@ export function NovoEndereco() {
           <div className="col-lg-3">
             <Form.Group>
               <Form.Label>CEP</Form.Label>
-              <Form.Control type="cep" placeholder="Apenas números" maxLength={8} value={cep} onChange={e => setCep(e.target.value)} required />
+              <Form.Control type="number" placeholder="Apenas números" maxLength={8} value={cep} onChange={e => setCep(e.target.value)} required />
             </Form.Group>
           </div>
           <div className="col-lg-6">
