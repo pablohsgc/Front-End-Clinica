@@ -26,21 +26,21 @@ export function Agendamento() {
   const [codigoMedico, setcodigoMedico] = useState("0");
 
   const [itemListado, setItem] = useState([]);
-  
 
-    useEffect(() => {
-        async function buscarConsultas() {
-            console.log("DATE: ", data);
 
-            const response = await RequisitaAgendaMedico(data);
-            if (response.erro) {
-                alert(response.erro);
-            }else{
-                setItem(response);
-            }            
-        }
-        buscarConsultas();
-    }, [data])
+  useEffect(() => {
+    async function buscarConsultas() {
+      console.log("DATE: ", data);
+
+      const response = await RequisitaAgendaMedico(data);
+      if (response.erro) {
+        alert(response.erro);
+      } else {
+        setItem(response);
+      }
+    }
+    buscarConsultas();
+  }, [data])
 
 
   useEffect(() => {
@@ -57,12 +57,12 @@ export function Agendamento() {
           lista.push(<option key={"especialidade_" + i} value={response[i].especialidade}>{response[i].especialidade}</option>)
 
         setEspecialidades(lista);
-      }      
+      }
     }
     buscarEspecialidades();
   }, []);
 
-  const adicionaHorarios = async (codigoMedicoEscolhido, dataEscolhida) => { 
+  const adicionaHorarios = async (codigoMedicoEscolhido, dataEscolhida) => {
     const response = await RequisitaHorariosDisponiveis(codigoMedicoEscolhido, dataEscolhida);
     if (response.erro) {
       alert(response.erro);
@@ -75,7 +75,7 @@ export function Agendamento() {
         lista.push(<option key={"horario_" + i} value={response[i].hora}>{response[i].hora}</option>)
 
       setHorarios(lista);
-    }    
+    }
   };
 
   const adicionaMedicos = async (especialidade) => {
@@ -91,7 +91,7 @@ export function Agendamento() {
         lista.push(<option key={"medico_" + i} value={response[i].codigo}>{response[i].nome}</option>)
 
       setMedicos(lista);
-    }    
+    }
   };
 
   const escolheMedico = async (codigoMedicoEscolhido) => {
@@ -103,7 +103,6 @@ export function Agendamento() {
     setEspecialidade(especialidade);
     adicionaMedicos(especialidade);
   };
-
 
   const handleSubmit = async () => {
     //let response = await RequisitaAgendamentos(data, nome, cpf, email, telefone, especialidade, codigoMedico, logradouro, numero, complemento, bairro, cidade, estado, cep)
@@ -180,7 +179,7 @@ export function Agendamento() {
           <div className="col-lg-4">
             <Form.Group>
               <Form.Label>Data para a Consulta: </Form.Label>
-                 <Form.Control id="date" name='calendario' type="date" value={data} onChange={e => setData(e.target.value)} required />
+              <Form.Control id="date" name='calendario' type="date" value={data} onChange={e => setData(e.target.value)} required />
             </Form.Group>
           </div>
           <div className="col-lg-4">
