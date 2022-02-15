@@ -1,7 +1,7 @@
-import '../ListarFuncionarios/Listar.css'
-import ItemListado from '../ListarConsultas/consultas'
+import '../ListarFuncionarios/Listar.css';
+import ItemListado from '../ListarConsultas/consultas';
 import { RequisitaAgendaMedico } from "../../api/api";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 
 export function ListarConsultas() {

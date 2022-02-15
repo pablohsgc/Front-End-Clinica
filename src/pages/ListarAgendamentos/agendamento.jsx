@@ -1,5 +1,6 @@
 import React from 'react';
-import '../ListarFuncionarios/Item.css'
+import '../ListarFuncionarios/Item.css';
+
 
 const Item = ({ item }) => {
     let date = Date.parse(item.dataconsulta);

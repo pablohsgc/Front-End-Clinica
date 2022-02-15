@@ -1,17 +1,19 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
+import ItemListado from '../ListarConsultas/consultas';
 import {
   RequisitaEspecialidades,
   RequisitaEspecialistas,
   RequisitaHorariosDisponiveis,
-  RequisitaAgendamento
+  RequisitaAgendamento,
+  RequisitaAgendaMedico
 } from "../../api/api";
 import { useState, useEffect } from 'react';
 import './style.css';
 
 export function Agendamento() {
 
-  const [data, setData] = useState("");
+  const [data, setData] = useState("2022-02-02");
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
@@ -22,6 +24,24 @@ export function Agendamento() {
   const [horario, setHorario] = useState(0);
   const [medicos, setMedicos] = useState([<option key="medico_default" value="0">Selecione uma especialidade médica!</option>]);
   const [codigoMedico, setcodigoMedico] = useState("0");
+
+  const [itemListado, setItem] = useState([]);
+  
+
+    useEffect(() => {
+        async function buscarConsultas() {
+            console.log("DATE: ", data);
+
+            const response = await RequisitaAgendaMedico(data);
+            if (response.erro) {
+                alert(response.erro);
+            }else{
+                setItem(response);
+            }            
+        }
+        buscarConsultas();
+    }, [data])
+
 
   useEffect(() => {
     async function buscarEspecialidades() {
@@ -84,11 +104,6 @@ export function Agendamento() {
     adicionaMedicos(especialidade);
   };
 
-  const escolheData = async (dataEscolhida) => {
-    setData(dataEscolhida);
-
-    if (codigoMedico !== 0) adicionaHorarios(codigoMedico, dataEscolhida);
-  };
 
   const handleSubmit = async () => {
     //let response = await RequisitaAgendamentos(data, nome, cpf, email, telefone, especialidade, codigoMedico, logradouro, numero, complemento, bairro, cidade, estado, cep)
@@ -165,7 +180,7 @@ export function Agendamento() {
           <div className="col-lg-4">
             <Form.Group>
               <Form.Label>Data para a Consulta: </Form.Label>
-              <input id="date" type="date" className="form-control" value={data} onChange={e => escolheData(e.target.value)} required />
+                 <Form.Control id="date" name='calendario' type="date" value={data} onChange={e => setData(e.target.value)} required />
             </Form.Group>
           </div>
           <div className="col-lg-4">
