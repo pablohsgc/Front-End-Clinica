@@ -10,9 +10,7 @@ export function ListarConsultas() {
     const [data, setData] = useState("2022-02-02");
 
     useEffect(() => {
-        async function buscarConsultas() {
-            console.log("DATE: ", data);
-
+        async function buscarConsultas() { 
             const response = await RequisitaAgendaMedico(data);
             if (response.erro) {
                 alert(response.erro);
@@ -21,6 +19,7 @@ export function ListarConsultas() {
             }            
         }
         buscarConsultas();
+
     }, [data])
 
     return (
@@ -28,8 +27,7 @@ export function ListarConsultas() {
             <h1 className='text-center'>Consultas</h1>
             <form className='item-container'>
                 <label for="date">Escolha uma data:</label>
-                <input id="date" name='calendario' type="date" value={data} onChange={e => setData(e.target.value)} required />
-                <input id='selecinarData' name='selecinarData' type="submit" class="btn btn-primary" />
+                <input id="date" name='calendario' type="date" value={data} onChange={e => setData(e.target.value)} required />                
             </form>
 
             <h5>
