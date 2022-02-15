@@ -67,7 +67,7 @@ export default function Navegacao(){
           authenticated ? <a href="/login">
           <button className="btn btn-outline-danger my-2 my-sm-0" onClick={logout}>Sair</button>
           </a> : <a href="/login">
-          <button className="btn btn-secondary bg-white text-info my-2 my-sm-0">Logar</button>
+          <button className="btn btn-info bg-white text-info my-2 my-sm-0">Logar</button>
           </a>
         }  
       </div>
