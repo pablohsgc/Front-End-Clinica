@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import './func.css';
 import { RequisitaCadastrarFuncionario, RequisitaCadastrarMedico, RequisitaEndereco } from "../../api/api";
-import { useState} from 'react';
+import { useState } from 'react';
 
 export function CadastrarFuncionario() {
 
@@ -32,6 +32,11 @@ export function CadastrarFuncionario() {
 
     if (tam.length === 8) {
       response = await RequisitaEndereco(cep);
+      if (response.erro) {
+        alert(response.erro);
+      } else {
+        alert(response.mensagem);
+      }
 
       setLogradouro(response.logradouro);
       setBairro(response.bairro);
@@ -43,14 +48,18 @@ export function CadastrarFuncionario() {
 
   const handleSubmit = async () => {
     let response = null;
-    
-    if(isChecked){
-        response = await RequisitaCadastrarMedico(nome, email, telefone, cep, logradouro, bairro, cidade, estado, dataContrato, salario, senhaHash, especialidade, CRM);
-    }else{
-        response = await RequisitaCadastrarFuncionario(nome, email, telefone, cep, logradouro, bairro, cidade, estado, dataContrato, salario, senhaHash);
+
+    if (isChecked) {
+      response = await RequisitaCadastrarMedico(nome, email, telefone, cep, logradouro, bairro, cidade, estado, dataContrato, salario, senhaHash, especialidade, CRM);
+    } else {
+      response = await RequisitaCadastrarFuncionario(nome, email, telefone, cep, logradouro, bairro, cidade, estado, dataContrato, salario, senhaHash);
     }
-  
-    alert(response)
+
+    if (response.erro) {
+      alert(response.erro);
+    } else {
+      alert(response.mensagem);
+    }
   }
 
   return (
@@ -153,19 +162,19 @@ export function CadastrarFuncionario() {
         </div>
         <Form.Label></Form.Label>
         {isChecked && <div className="row">
-            <div className="col-lg-8">
-              <Form.Group className="alert alert-warning" >
-                <Form.Label>Especialidade</Form.Label>
-                <Form.Control type="text" className="form-control" name="especialidade" placeholder="Ex.: Pediatria" maxLength={20} value={especialidade} onChange={e => setEspecialidade(e.target.value)} required />
-              </Form.Group>
-            </div>
-            <div className="col-lg-4">
-              <Form.Group className="alert alert-warning" >
-                <Form.Label>CRM</Form.Label>
-                <Form.Control type="text" className="form-control" name="CRM" placeholder="000000" maxLength={6} value={CRM} onChange={e => setCrm(e.target.value)} required />
-              </Form.Group>
-            </div>
+          <div className="col-lg-8">
+            <Form.Group className="alert alert-warning" >
+              <Form.Label>Especialidade</Form.Label>
+              <Form.Control type="text" className="form-control" name="especialidade" placeholder="Ex.: Pediatria" maxLength={20} value={especialidade} onChange={e => setEspecialidade(e.target.value)} required />
+            </Form.Group>
           </div>
+          <div className="col-lg-4">
+            <Form.Group className="alert alert-warning" >
+              <Form.Label>CRM</Form.Label>
+              <Form.Control type="text" className="form-control" name="CRM" placeholder="000000" maxLength={6} value={CRM} onChange={e => setCrm(e.target.value)} required />
+            </Form.Group>
+          </div>
+        </div>
         }
       </Form>
       <div className="form-group col-md-12 text-center">

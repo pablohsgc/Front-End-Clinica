@@ -12,6 +12,10 @@ export function ListarEnderecos() {
 
         async function buscarEnderecos() {
             const response = await RequisitaListarEnderecos();
+            if (response.erro) {
+                alert(response.erro);
+            }
+
             setItem(response);
         }
 
