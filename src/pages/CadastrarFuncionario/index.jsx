@@ -65,7 +65,7 @@ export function CadastrarFuncionario() {
         Cadastro de Funcionário
       </div>
 
-      <Form className="form-/cadastrarFuncionario" action="/" method="post">
+      <Form className="form-/cadastrarFuncionario">
         <div className="row">
           <div className="col-lg-12">
             <Form.Group>

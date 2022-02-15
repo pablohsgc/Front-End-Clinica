@@ -107,7 +107,7 @@ export function Agendamento() {
         Agendamento de Consulta
       </div>
 
-      <Form className="form-agendamento" action="/" method="post">
+      <Form className="form-agendamento">
         <div className="row">
           <div className="col-lg-8">
             <Form.Group>

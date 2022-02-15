@@ -49,7 +49,7 @@ export function CadastrarPaciente() {
         Cadastro de Paciente
       </div>
 
-      <Form className="form-cadastrarPaciente" action="/" method="post">
+      <Form className="form-cadastrarPaciente">
         <div className="row">
           <div className="col-lg-12">
             <Form.Group>
