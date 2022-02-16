@@ -56,7 +56,7 @@ export async function RequisitaListarAgendamentos(data) {
         data:data
     }
 
-    return await fetch(BASE_URL + "/agendamentos/" , {
+    return await fetch(BASE_URL + "/agendamentos" , {
         method: 'POST',
         body: JSON.stringify(dados),
         headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
@@ -118,7 +118,7 @@ export async function RequisitaAgendamento(data,horario,nome,email,telefone,espe
 
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 
-    return await fetch(BASE_URL + "/agendamentos", {
+    return await fetch(BASE_URL + "/agenda", {
         method: 'POST',
         body: JSON.stringify(dados),
         headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
