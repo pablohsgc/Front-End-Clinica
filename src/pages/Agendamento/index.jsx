@@ -85,7 +85,7 @@ export function Agendamento() {
   };
 
   const escolheData = async (dataEscolhida) => {
-    setData(data);
+    setData(dataEscolhida);
 
     if(codigoMedico !== 0){
       adicionaHorarios(codigoMedico,dataEscolhida);
