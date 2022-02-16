@@ -1,5 +1,6 @@
 # FRONT END TP2
 ## Como utilizar
+ - Após clonar o repositório, execute o comando **npm i** para instalar as dependencias.
  - Execute o programa com o comando **npm start**
  - Execute o BACKEND da pasta TP2-typescript com as instruções mostradas no README.MD principal da aplicação.
 ## Observações:
