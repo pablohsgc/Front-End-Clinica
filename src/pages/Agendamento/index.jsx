@@ -84,6 +84,14 @@ export function Agendamento() {
     adicionaMedicos(especialidade);
   };
 
+  const escolheData = async (dataEscolhida) => {
+    setData(data);
+
+    if(codigoMedico !== 0){
+      adicionaHorarios(codigoMedico,dataEscolhida);
+    }
+  }
+
   const handleSubmit = async () => {
     //let response = await RequisitaAgendamentos(data, nome, cpf, email, telefone, especialidade, codigoMedico, logradouro, numero, complemento, bairro, cidade, estado, cep)
     let response = await RequisitaAgendamento(data, horario, nome, email, telefone, especialidade, codigoMedico);
@@ -159,7 +167,7 @@ export function Agendamento() {
           <div className="col-lg-4">
             <Form.Group>
               <Form.Label>Data para a Consulta: </Form.Label>
-              <Form.Control id="date" name='calendario' type="date" value={data} onChange={e => setData(e.target.value)} required />
+              <Form.Control id="date" name='calendario' type="date" value={data} onChange={e => escolheData(e.target.value)} required />
             </Form.Group>
           </div>
           <div className="col-lg-4">
