@@ -1,12 +1,10 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
-import ItemListado from '../ListarConsultas/consultas';
 import {
   RequisitaEspecialidades,
   RequisitaEspecialistas,
   RequisitaHorariosDisponiveis,
-  RequisitaAgendamento,
-  RequisitaAgendaMedico
+  RequisitaAgendamento
 } from "../../api/api";
 import { useState, useEffect } from 'react';
 import './style.css';
@@ -18,30 +16,12 @@ export function Agendamento() {
   const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
-  const [especialidade, setEspecialidade] = useState("0");
+  const [especialidade, setEspecialidade] = useState(0);
   const [especialidades, setEspecialidades] = useState("");
   const [horarios, setHorarios] = useState([<option key="horario_default" value="0">Preencha as demais opções!</option>]);
   const [horario, setHorario] = useState(0);
   const [medicos, setMedicos] = useState([<option key="medico_default" value="0">Selecione uma especialidade médica!</option>]);
-  const [codigoMedico, setcodigoMedico] = useState("0");
-
-  const [itemListado, setItem] = useState([]);
-
-
-  useEffect(() => {
-    async function buscarConsultas() {
-      console.log("DATE: ", data);
-
-      const response = await RequisitaAgendaMedico(data);
-      if (response.erro) {
-        alert(response.erro);
-      } else {
-        setItem(response);
-      }
-    }
-    buscarConsultas();
-  }, [data])
-
+  const [codigoMedico, setcodigoMedico] = useState(0);
 
   useEffect(() => {
     async function buscarEspecialidades() {

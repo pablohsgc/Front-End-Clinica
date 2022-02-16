@@ -14,10 +14,10 @@ export function CadastrarFuncionario() {
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
   const [dataContrato, setDataContrato] = useState("");
-  const [salario, setSalario] = useState("");
+  const [salario, setSalario] = useState(0);
   const [senhaHash, setSenhaHash] = useState("");
   const [especialidade, setEspecialidade] = useState("");
-  const [CRM, setCrm] = useState("");
+  const [CRM, setCrm] = useState(0);
 
   const [isChecked, setIsChecked] = useState(false);
 

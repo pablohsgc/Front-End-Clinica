@@ -49,11 +49,16 @@ export async function RequisitaListarPacientes(email, senha) {
         })
 }
 
-export async function RequisitaListarAgendamentos(email, senha) {
+export async function RequisitaListarAgendamentos(data) {
     let user = JSON.parse(localStorage.getItem('usuario-tp2'))
 
-    return await fetch(BASE_URL + "/agendamentos", {
-        method: 'GET',
+    let dados = {
+        data:data
+    }
+
+    return await fetch(BASE_URL + "/agendamentos/" , {
+        method: 'POST',
+        body: JSON.stringify(dados),
         headers: { "Content-type": "application/json; charset=UTF-8", "bearer": user.token }
     })
         .then(response => response.json())
@@ -79,7 +84,7 @@ export async function RequisitaListarEnderecos() {
         })
 }
 
-export async function RequisitaAgendaMedico( data) {
+export async function RequisitaAgendaMedico(data) {
     const medico = {
         data: data
     }    

@@ -12,8 +12,8 @@ export function CadastrarPaciente() {
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
   const [cep, setCep] = useState("");
-  const [peso, setPeso] = useState("");
-  const [altura, setAltura] = useState("");
+  const [peso, setPeso] = useState(0);
+  const [altura, setAltura] = useState(0);
   const [tipoSanguineo, setTipoSanguineo] = useState("");
 
   const handleSubmit = async () => {
