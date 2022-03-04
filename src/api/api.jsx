@@ -5,7 +5,6 @@
 const BASE_URL = "https://clica-api.herokuapp.com";
 
 
-
 export async function RequisitaLogin(email, senha) {
     const usuario = {
         email: email,
