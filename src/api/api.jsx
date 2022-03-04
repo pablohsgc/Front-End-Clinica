@@ -1,7 +1,7 @@
 // URL para projeto rodando na maquina local
 //const BASE_URL = "http://localhost:5000";
 
-//URL conectado com o back end heroku
+// URL conectado com o API hospedada no heroku
 const BASE_URL = "https://clica-api.herokuapp.com";
 
 
